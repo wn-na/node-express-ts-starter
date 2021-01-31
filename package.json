@@ -7,7 +7,8 @@
     "start": "tsc && node dist",
     "dev": "nodemon --delay 2.5 src/index.ts",
     "eslint": "npx eslint src/**/* --resolve-plugins-relative-to .",
-    "fix": "npx eslint src/**/* --resolve-plugins-relative-to . --fix"
+    "fix": "npx eslint src/**/* --resolve-plugins-relative-to . --fix",
+    "test": "mocha --timeout 10000 --require ts-node/register 'src/test/**/*.ts'"
   },
   "repository": {
     "type": "git",
@@ -24,10 +25,16 @@
     "source-map-support": "^0.5.19"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.14",
     "@types/express": "^4.17.10",
+    "@types/mocha": "^8.2.0",
     "@types/node": "^14.14.20",
+    "@types/supertest": "^2.0.10",
     "@typescript-eslint/eslint-plugin": "^4.13.0",
     "@typescript-eslint/parser": "^4.13.0",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "supertest": "^6.0.1",
     "eslint": "^7.17.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^7.1.0",
