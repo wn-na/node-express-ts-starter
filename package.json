@@ -1,0 +1,56 @@
+{
+  "name": "express-ts-base",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node dist",
+    "dev": "nodemon --delay 2.5 src/index.ts",
+    "eslint": "npx eslint src/**/* --resolve-plugins-relative-to .",
+    "fix": "npx eslint src/**/* --resolve-plugins-relative-to . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lethekawa/node-express-ts-base.git"
+  },
+  "author": "lethekawa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lethekawa/node-express-ts-base/issues"
+  },
+  "homepage": "https://github.com/lethekawa/node-express-ts-base#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "source-map-support": "^0.5.19"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.10",
+    "@types/node": "^14.14.20",
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
+    "eslint": "^7.17.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "husky": "^4.3.7",
+    "lint-staged": "^10.0.0-1",
+    "nodemon": "^2.0.7",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.2.1",
+    "ts-loader": "^8.0.14",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix --resolve-plugins-relative-to .",
+      "prettier --write",
+      "git add"
+    ]
+  }
+}
