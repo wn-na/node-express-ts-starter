@@ -13,16 +13,17 @@ class Application {
 const application: express.Application = new Application().application;
 
 application.use('/', router);
+application.use(express.static('public'));
 
-application.use((req: Request, res: Response, next: NextFunction) => {
+application.use((_req: Request, _res: Response, next: NextFunction) => {
     next(new HTTPError(404, '404 Not Found'));
 });
 
-application.use((err: HTTPError, req: Request, res: Response, next: NextFunction) => {
+application.use((err: HTTPError, _req: Request, res: Response, next: NextFunction) => {
     res.status(err?.rawStatusCode ?? 500);
     res.json({
         code: err?.rawStatusCode ?? 500,
-        message: err?.message ?? err?.rawStatusCodeMessage,
+        message: err?.message || err?.rawStatusCodeMessage,
         data: err?.rawData,
     });
     next();
